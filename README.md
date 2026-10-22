@@ -1,49 +1,156 @@
 # Student Expense Analysis System
 
-Menu-driven terminal project to record and analyse daily student expenses using Python, Pandas, Matplotlib and a CSV file.
+A Python-based application to record, manage, analyze, and visualize daily student expenses using Pandas, Matplotlib, and CSV file storage.
 
-## Folder Structure
+## Overview
 
+The Student Expense Analysis System helps students track their daily spending, understand monthly expenses, and identify where their money goes. It provides a simple menu-driven interface and generates charts for category-wise expense analysis.
+
+## Features
+
+- Add, view, and delete expenses
+- Store expense records in a CSV file
+- Calculate total, highest, and lowest expenses
+- Analyze monthly spending
+- Calculate category-wise expense totals
+- Generate bar charts and pie charts
+- Validate user input and handle invalid CSV records
+- Save generated charts as image files
+
+## Technologies Used
+
+- **Python** — application logic
+- **Pandas** — data handling and analysis
+- **Matplotlib** — data visualization
+- **CSV** — expense data storage
+
+## Project Structure
+
+```text
 student_expense_system/
-├── main.py            entry point
-├── config.py          paths and constants
-├── storage.py         load, clean, save, add, delete (CSV)
-├── analysis.py        totals, monthly, category-wise, highest/lowest
-├── charts.py          bar chart and pie chart
-├── menu.py            input validation and menu
+├── main.py
+├── config.py
+├── storage.py
+├── analysis.py
+├── charts.py
+├── menu.py
 ├── requirements.txt
 ├── README.md
+├── .gitignore
 ├── data/
-│   └── expenses.csv   sample data
-└── output/            charts are saved here
+│   └── expenses.csv
+└── output/
+```
 
-## Setup and Run (Windows 11)
+## Requirements
 
-1. Install Python 3.9+  (tick "Add Python to PATH").
-2. Open Command Prompt and go to the project folder:
+- Python 3.12 recommended
+- pip
+- Pandas
+- Matplotlib
 
-   cd path\to\student_expense_system
+## Installation and Setup
 
-3. Create and activate a virtual environment:
+### 1. Clone the repository
 
-   python -m venv venv
-   venv\Scripts\activate
+```powershell
+git clone https://github.com/aditya-abhinaw/Student-Expense-Analysis.git
+cd Student-Expense-Analysis
+```
 
-   (PowerShell: if blocked, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` first.)
+### 2. Create a virtual environment
 
-4. Install libraries and run:
+```powershell
+python -m venv venv
+```
 
-   pip install -r requirements.txt
-   python main.py
+### 3. Activate the environment on Windows
 
-## CSV Format
+```powershell
+.\venv\Scripts\Activate.ps1
+```
 
+If PowerShell blocks activation, run this command in the current terminal and try again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+### 4. Install dependencies
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### 5. Run the application
+
+```powershell
+python main.py
+```
+
+## How to Use
+
+Choose an option from the application menu:
+
+| Option | Operation |
+|---|---|
+| 1 | Add an expense |
+| 2 | View all expenses |
+| 3 | Delete an expense |
+| 4 | View total, highest, and lowest expenses |
+| 5 | View monthly spending |
+| 6 | View category-wise totals |
+| 7 | Generate a category-wise bar chart |
+| 8 | Generate an expense distribution pie chart |
+| 9 | Exit the application |
+
+Enter dates in `YYYY-MM-DD` format and amounts as positive numbers.
+
+## CSV Data Format
+
+Expense records are stored in `data/expenses.csv`.
+
+```csv
 date,description,category,amount
-2026-10-03,Auto fare,Travel,220
+2026-10-20,Lunch,Food,150
+2026-10-20,Bus fare,Travel,40
+2026-10-21,Notebook,Books,80
+```
 
-## Validation
+The application validates records and warns about invalid or incomplete rows.
 
-- Date must be `YYYY-MM-DD`; amount must be a number greater than 0.
-- Description cannot be empty; category is chosen from a numbered list.
-- Invalid or incomplete CSV rows are skipped with a warning and are removed from the file the next time you add or delete an expense.
-- A missing or empty CSV file is created automatically.
+## Output
+
+The application displays expense summaries in the terminal and generates:
+
+- `category_spending.png` — category-wise bar chart
+- `expense_distribution.png` — expense distribution pie chart
+
+Generated charts are saved in the `output/` directory.
+
+## Learning Outcomes
+
+This project demonstrates:
+
+- Python functions, modules, loops, and conditional statements
+- File handling and CSV data storage
+- Input validation and exception handling
+- Pandas DataFrames and data aggregation
+- Matplotlib charts and data visualization
+- Modular program design
+
+## Future Enhancements
+
+- Monthly budget limits and alerts
+- Exportable expense reports
+- A graphical user interface
+- Expense search and filtering
+- NumPy-based numerical analysis
+
+## Author
+
+**Abhinaw Aditya**
+
+## License
+
+This project was developed for educational purposes as part of the ITL-5 Python laboratory PBL.
